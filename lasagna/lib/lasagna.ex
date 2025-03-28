@@ -1,11 +1,16 @@
 defmodule Lasagna do
-  # Please define the 'expected_minutes_in_oven/0' function
+  @exp_min_in_oven 40
+  @min_per_layer 2
 
-  # Please define the 'remaining_minutes_in_oven/1' function
+  def expected_minutes_in_oven(), do: @exp_min_in_oven
 
-  # Please define the 'preparation_time_in_minutes/1' function
+  def remaining_minutes_in_oven(min_in_oven), do: @exp_min_in_oven - min_in_oven
 
-  # Please define the 'total_time_in_minutes/2' function
+  def preparation_time_in_minutes(num_layer), do: @min_per_layer * num_layer
 
-  # Please define the 'alarm/0' function
+  def total_time_in_minutes(num_layer, min_in_oven) do
+    preparation_time_in_minutes(num_layer) + min_in_oven
+  end
+
+  def alarm(), do: "Ding!"
 end
